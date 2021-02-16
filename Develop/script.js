@@ -7,16 +7,28 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+function generatePassword() {
+  
+  //prompt for length 8 to 128 chars
+  var length = prompt("Enter password length (8 to 128 characters)");
+  checkLength();
+  //confirm for upper
+  //confirm for lower
+  //confirm for number
+  //confirm for symbol
 
+}
 
-
-
+//---------------------------------------------------------------//
+function checkLength(){
+  //make sure response is a number && >=8 && <= 128
+}
+//---------------------------------------------------------------//
 
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
@@ -31,6 +43,6 @@ function getRandomNumber() {
 }
 
 function getRandomSymbol() {
-  const symbols = " !@#$%^&*(){}[]=<>/,.";
+  const symbols = "!@#$%^&*(){}[]=<>/,.";
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
