@@ -13,21 +13,85 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-  
   //prompt for length 8 to 128 chars
   var length = prompt("Enter password length (8 to 128 characters)");
-  checkLength();
-  //confirm for upper
-  //confirm for lower
-  //confirm for number
-  //confirm for symbol
+  if (checkLength(length) == false) {
+    while (checkLength(length) == false) {
+      var badInput = alert("That is not a valid response.");
+      length = prompt("Enter password length (8 to 128 characters)");
+    }
+  } else {
+    var charactersToInclude = askQuestions();
+    // if charactersToInclude is empty... show a message and repeat (18-22)
+    if (charactersToInclude.length === 0) {
+      alert("You must pick at least one character type");
+      askQuestions();
+    } else {
 
+    }
+    // else if the array is not empty... move on - to random number generation
+  }
+}
+function askQuestions() {
+  const responses = [];
+  const upperQ = confirm("Do you want uppercase letters?");
+  const lowerQ = confirm("Do you want lowercase letters?");
+  const numberQ = confirm("Do you want numbers?");
+  const symbolQ = confirm("Do you want symbols?");
+  if (upperQ === true) {
+    responses.push("upperQ");
+    console.log("include uppercase letters");
+  } else {
+    console.log("* no uppercase");
+  }
+  if (lowerQ === true) {
+    // push into array
+    responses.push("lowerQ");
+  } else {
+    console.log("* no lowercase");
+  }
+  if (numberQ === true) {
+    // push into array
+    responses.push("numberQ");
+  } else {
+    console.log("* no numbers");
+  }
+  if (symbolQ === true) {
+    // push into array
+    responses.push("symbolQ");
+  } else {
+    console.log("* no symbols");
+  }
+  console.log(responses);
+  return responses;
 }
 
 //---------------------------------------------------------------//
-function checkLength(){
-  //make sure response is a number && >=8 && <= 128
+
+function checkLength(length) {
+  // if the length is a number && >=8 && <= 128 return true
+  if (!isNaN(length) && length >= 8 && length <= 128) {
+    console.log("this IS valid");
+    return true;
+  } else {
+    console.log("this is not valid input");
+    return false;
+  }
 }
+//------------------------------------------------------------------//
+
+//---------------------------------------------------------------//
+//****************************************************** */
+//putting all of the getRandom functions into an object called randomFunc
+var randomFunc = {
+  upper: getRandomUpper,
+  lower: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbol,
+};
+
+//******************************************************* */
+
 //---------------------------------------------------------------//
 
 function getRandomLower() {
@@ -39,7 +103,7 @@ function getRandomUpper() {
 }
 
 function getRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 48);
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
 function getRandomSymbol() {
