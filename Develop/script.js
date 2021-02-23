@@ -17,21 +17,24 @@ function generatePassword() {
   var length = prompt("Enter password length (8 to 128 characters)");
   if (checkLength(length) == false) {
     while (checkLength(length) == false) {
+      // this is a loop that keeps prompting length and running the check until the input is valid
       var badInput = alert("That is not a valid response.");
       length = prompt("Enter password length (8 to 128 characters)");
     }
-  } else {
-    var charactersToInclude = askQuestions();
-    // if charactersToInclude is empty... show a message and repeat (18-22)
-    if (charactersToInclude.length === 0) {
-      alert("You must pick at least one character type");
-      askQuestions();
-    } else {
-
-    }
-    // else if the array is not empty... move on - to random number generation
   }
+
+  var responseArray = askQuestions();
+  // if responsesArray is empty... show a message and repeat (18-22)
+
+  if (responseArray.length === 0) {
+    while (responseArray.length === 0) {
+      alert("You must pick at least one character type");
+      responseArray = askQuestions();
+    }
+  }
+  // else if the array is not empty... move on - to random number generation
 }
+
 function askQuestions() {
   const responses = [];
   const upperQ = confirm("Do you want uppercase letters?");
