@@ -14,16 +14,19 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
   //prompt for length 8 to 128 chars
-  var length = prompt("Enter password length (8 to 128 characters)");
-  if (checkLength(length) == false) {
-    while (checkLength(length) == false) {
+  var passwordLength = prompt("Enter password length (8 to 128 characters)");
+  if (checkLength(passwordLength) == false) {
+    while (checkLength(passwordLength) == false) {
       // this is a loop that keeps prompting length and running the check until the input is valid
       var badInput = alert("That is not a valid response.");
-      length = prompt("Enter password length (8 to 128 characters)");
+      passwordLength = prompt("Enter password length (8 to 128 characters)");
     }
   }
 
   var responseArray = askQuestions();
+  {
+  }
+  // askQuestions(); this should populate responses
   // if responsesArray is empty... show a message and repeat (18-22)
 
   if (responseArray.length === 0) {
@@ -34,13 +37,18 @@ function generatePassword() {
   }
   // else if the array is not empty... move on - to random number generation
 }
-
 function askQuestions() {
   const responses = [];
+
   const upperQ = confirm("Do you want uppercase letters?");
   const lowerQ = confirm("Do you want lowercase letters?");
   const numberQ = confirm("Do you want numbers?");
   const symbolQ = confirm("Do you want symbols?");
+
+  console.log(responses.includes("upperQ"));
+
+  //instead of pushing to an array do individual function calling
+
   if (upperQ === true) {
     responses.push("upperQ");
     console.log("include uppercase letters");
@@ -69,11 +77,23 @@ function askQuestions() {
   return responses;
 }
 
+//----------------------------------------------------------------//
+// take the approved categories and generate randoms of each ategory
+
+// for loop through the chosen character types for the length of passwordLength
+
+//if (responses[0] === true) {
+//console.log("this is where the generate function would be called");
+//}
+
+//if (responses[1] === true) {
+//}
+
 //---------------------------------------------------------------//
 
-function checkLength(length) {
+function checkLength(passwordLength) {
   // if the length is a number && >=8 && <= 128 return true
-  if (!isNaN(length) && length >= 8 && length <= 128) {
+  if (!isNaN(passwordLength) && passwordLength >= 8 && passwordLength <= 128) {
     console.log("this IS valid");
     return true;
   } else {
@@ -86,12 +106,12 @@ function checkLength(length) {
 //---------------------------------------------------------------//
 //****************************************************** */
 //putting all of the getRandom functions into an object called randomFunc
-var randomFunc = {
-  upper: getRandomUpper,
-  lower: getRandomUpper,
-  number: getRandomNumber,
-  symbol: getRandomSymbol,
-};
+// var randomFunc = {
+//   upper: getRandomUpper,
+//   lower: getRandomUpper,
+//   number: getRandomNumber,
+//   symbol: getRandomSymbol,
+// };
 
 //******************************************************* */
 
