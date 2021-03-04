@@ -42,111 +42,120 @@ function generatePassword() {
   //8 chars loop through response up to eight
   var i;
   var finalPassword = "";
+
   for (i = 0; i <= passwordLength; i++) {
-    if (responseArray.includes("upperQ")) {
+    if (
+      responseArray.includes("upperQ") &&
+      finalPassword.length <= passwordLength
+    ) {
       var randomUpper = getRandomUpper();
       finalPassword += randomUpper;
     }
-    if (responseArray.includes("lowerQ")) {
+    if (
+      responseArray.includes("lowerQ") &&
+      finalPassword.length <= passwordLength
+    ) {
       var randomLower = getRandomLower();
       finalPassword += randomLower;
     }
-    if (responseArray.includes("numberQ")) {
+    if (
+      responseArray.includes("numberQ") &&
+      finalPassword.length <= passwordLength
+    ) {
       var randomNumber = getRandomNumber();
       finalPassword += randomNumber;
     }
-    if (responseArray.includes("symbolQ")) {
+    if (
+      responseArray.includes("symbolQ") &&
+      finalPassword.length <= passwordLength
+    ) {
       var randomSymbol = getRandomSymbol();
       finalPassword += randomSymbol;
     }
     console.log(finalPassword);
   }
   return finalPassword;
+}
 
-  function askQuestions() {
-    const responses = [];
+function askQuestions() {
+  const responses = [];
 
-    const upperQ = confirm("Do you want uppercase letters?");
-    const lowerQ = confirm("Do you want lowercase letters?");
-    const numberQ = confirm("Do you want numbers?");
-    const symbolQ = confirm("Do you want symbols?");
+  const upperQ = confirm("Do you want uppercase letters?");
+  const lowerQ = confirm("Do you want lowercase letters?");
+  const numberQ = confirm("Do you want numbers?");
+  const symbolQ = confirm("Do you want symbols?");
 
-    console.log(responses.includes("upperQ"));
+  console.log(responses.includes("upperQ"));
 
-    //instead of pushing to an array do individual function calling
+  //instead of pushing to an array do individual function calling
 
-    if (upperQ === true) {
-      responses.push("upperQ");
-      console.log("include uppercase letters");
-    } else {
-      console.log("* no uppercase");
-    }
-    if (lowerQ === true) {
-      // push into array
-      responses.push("lowerQ");
-    } else {
-      console.log("* no lowercase");
-    }
-    if (numberQ === true) {
-      // push into array
-      responses.push("numberQ");
-    } else {
-      console.log("* no numbers");
-    }
-    if (symbolQ === true) {
-      // push into array
-      responses.push("symbolQ");
-    } else {
-      console.log("* no symbols");
-    }
-    console.log(responses);
-    return responses;
+  if (upperQ === true) {
+    responses.push("upperQ");
+    console.log("include uppercase letters");
+  } else {
+    console.log("* no uppercase");
   }
-
-  //----------------------------------------------------------------//
-  // take the approved categories and generate randoms of each ategory
-
-  // for loop through the chosen character types for the length of passwordLength
-
-  //---------------------------------------------------------------//
-
-  function checkLength(passwordLength) {
-    // if the length is a number && >=8 && <= 128 return true
-    if (
-      !isNaN(passwordLength) &&
-      passwordLength >= 8 &&
-      passwordLength <= 128
-    ) {
-      console.log("this IS valid");
-      return true;
-    } else {
-      console.log("this is not valid input");
-      return false;
-    }
+  if (lowerQ === true) {
+    // push into array
+    responses.push("lowerQ");
+  } else {
+    console.log("* no lowercase");
   }
-  //------------------------------------------------------------------//
-
-  //---------------------------------------------------------------//
-  //****************************************************** */
-
-  //******************************************************* */
-
-  //---------------------------------------------------------------//
-
-  function getRandomLower() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  if (numberQ === true) {
+    // push into array
+    responses.push("numberQ");
+  } else {
+    console.log("* no numbers");
   }
-
-  function getRandomUpper() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  if (symbolQ === true) {
+    // push into array
+    responses.push("symbolQ");
+  } else {
+    console.log("* no symbols");
   }
+  console.log(responses);
+  return responses;
+}
 
-  function getRandomNumber() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-  }
+//----------------------------------------------------------------//
+// take the approved categories and generate randoms of each ategory
 
-  function getRandomSymbol() {
-    const symbols = "!@#$%^&*(){}[]=<>/,.";
-    return symbols[Math.floor(Math.random() * symbols.length)];
+// for loop through the chosen character types for the length of passwordLength
+
+//---------------------------------------------------------------//
+
+function checkLength(passwordLength) {
+  // if the length is a number && >=8 && <= 128 return true
+  if (!isNaN(passwordLength) && passwordLength >= 8 && passwordLength <= 128) {
+    console.log("this IS valid");
+    return true;
+  } else {
+    console.log("this is not valid input");
+    return false;
   }
+}
+//------------------------------------------------------------------//
+
+//---------------------------------------------------------------//
+//****************************************************** */
+
+//******************************************************* */
+
+//---------------------------------------------------------------//
+
+function getRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+}
+
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+}
+
+function getRandomNumber() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+}
+
+function getRandomSymbol() {
+  const symbols = "!@#$%^&*(){}[]=<>/,.";
+  return symbols[Math.floor(Math.random() * symbols.length)];
 }
