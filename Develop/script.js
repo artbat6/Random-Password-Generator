@@ -46,28 +46,28 @@ function generatePassword() {
   for (i = 0; i <= passwordLength; i++) {
     if (
       responseArray.includes("upperQ") &&
-      finalPassword.length <= passwordLength
+      finalPassword.length < passwordLength
     ) {
       var randomUpper = getRandomUpper();
       finalPassword += randomUpper;
     }
     if (
       responseArray.includes("lowerQ") &&
-      finalPassword.length <= passwordLength
+      finalPassword.length < passwordLength
     ) {
       var randomLower = getRandomLower();
       finalPassword += randomLower;
     }
     if (
       responseArray.includes("numberQ") &&
-      finalPassword.length <= passwordLength
+      finalPassword.length < passwordLength
     ) {
       var randomNumber = getRandomNumber();
       finalPassword += randomNumber;
     }
     if (
       responseArray.includes("symbolQ") &&
-      finalPassword.length <= passwordLength
+      finalPassword.length < passwordLength
     ) {
       var randomSymbol = getRandomSymbol();
       finalPassword += randomSymbol;
@@ -134,14 +134,6 @@ function checkLength(passwordLength) {
     return false;
   }
 }
-//------------------------------------------------------------------//
-
-//---------------------------------------------------------------//
-//****************************************************** */
-
-//******************************************************* */
-
-//---------------------------------------------------------------//
 
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
