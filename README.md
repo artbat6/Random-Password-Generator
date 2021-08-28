@@ -6,5 +6,12 @@ This is an application that generates a random password based on user-selected c
 
 If you are unfamiliar with special characters, take a look at [some examples](https://www.owasp.org/index.php/Password_special_characters).
 
+## Usage
+
+Follow this link to deployed application:
+
+https://artbat6.github.io/Random-Password-Generator
+
 ## Author
+
 Arthur Bates
