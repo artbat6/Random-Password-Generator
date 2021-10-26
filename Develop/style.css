@@ -21,6 +21,8 @@ body {
 h1 {
   font-size: 3em;
 }
+.card-header {
+  text-align: center;}
 
 .wrapper {
   padding-top: 30px;
@@ -45,6 +47,9 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .card-header::after {
