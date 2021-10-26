@@ -2,6 +2,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
@@ -10,36 +12,58 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  
 }
 
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
   background-image: url('https://i.ibb.co/FnGwz2p/password-back-B-W-10.png');
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  align-items: center;
+  justify-content: center;
+  display: block;
+  /* padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px; */
+  width: 5;
+}
+
+header {
+  /* width: 500px; */
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 5px;
+  /* background-color: #c0c7cf; */
+  color: hsl(0, 0%, 0%);
+}
+
+.box {
+  background-color: #c0c7cf;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 25px;
+  margin-top: 6em;
 }
 
 h1 {
   font-size: 3em;
 }
+
 .card-header {
-  text-align: center;}
-
-.wrapper {
-  padding-top: 30px;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-header {
   text-align: center;
-  padding: 20px;
-  padding-top: 0px;
-  color: hsl(206, 17%, 28%);
 }
 
 .card {
   background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
+  border-radius: 25px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   color: hsl(206, 17%, 28%);
@@ -84,7 +108,7 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: rgb(248, 85, 85);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
