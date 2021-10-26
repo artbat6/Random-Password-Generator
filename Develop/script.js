@@ -14,12 +14,12 @@ generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
   //prompt for length 8 to 128 chars
-  var passwordLength = prompt("Enter password length (8 to 128 characters)");
+  var passwordLength = prompt("How many characters does your password need? (8 to 128)");
   if (checkLength(passwordLength) == false) {
     while (checkLength(passwordLength) == false) {
       // this is a loop that keeps prompting length and running the check until the input is valid
       var badInput = alert("That is not a valid response.");
-      passwordLength = prompt("Enter password length (8 to 128 characters)");
+      passwordLength = prompt("How many characters does your password need? (8 to 128)");
     }
   }
 
