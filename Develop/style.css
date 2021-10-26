@@ -131,6 +131,11 @@ button[disabled] {
   float: right;
 }
 
+h2 {
+  margin-bottom: 20px;
+  color:rgb(98, 98, 98);
+}
+
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
