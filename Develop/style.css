@@ -15,6 +15,11 @@ body,
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
+  background-image: url('https://i.ibb.co/FnGwz2p/password-back-B-W-10.png');
+}
+
+h1 {
+  font-size: 3em;
 }
 
 .wrapper {
